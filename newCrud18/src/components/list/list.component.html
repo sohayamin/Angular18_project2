@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5>List of employees</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">email</th>
+                            <th scope="col">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                           @for (item of empData; track $index) {
+                          <tr>
+                            <th scope="row">{{item.id}}</th>
+                            <td>{{item.name}}</td>
+                            <td>{{item.age}}</td>
+                            <td>{{item.email}}</td>
+                            <th scope="col">
+                                <button class="btn btn-primary" [routerLink]="['../edit',item.id]">Edit</button>&nbsp;
+                                <!-- <button class="btn btn-primary" routerLink="../edit">Edit</button>&nbsp; -->
+                                <button class="btn btn-warning" (click)="onDelete(item.id)" >Delete</button>
+                            </th>
+                          </tr>
+                           }
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
